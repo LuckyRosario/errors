@@ -1,6 +1,9 @@
 body {
   font-family: 'Poppins';
 }
-.radio-yes{
+form{
   page-break-after: always
+}
+span{
+  color: white;
 }

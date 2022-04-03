@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Navigation from "./navbar"
 import Greeting from "./greeting";
 
 //create your first component
@@ -50,8 +50,10 @@ const App = () => {
 	const headerKeys = Object.keys(Object.assign({}, ...array));
 
 	return (
-		<div>
-			<h1 className="text-center m-5">IRS Error Notification Template</h1>
+		<>
+		<Navigation />
+		<div className="container mb-5">
+			
 			<Greeting />
 			<p>
 				We have successfully submitted your ACA Reporting. The IRS
@@ -121,14 +123,13 @@ const App = () => {
 					</p>
 				</label>
 			</div>
-			<p>
+			<p className="mt-3">
 				<strong>
 					Please upload your csv document containing the errors and
 					updated information here.
 				</strong>
 			</p>
 			<div style={{ textAlign: "center" }}>
-				<h1>CSV IMPORT</h1>
 				<form>
 					<input
 						disabled={selectedRadio === "no"}
@@ -139,7 +140,8 @@ const App = () => {
 					/>
 
 					<button
-						className="rounded-pill border border-success"
+						className="rounded-pill btn btn-success"
+						disabled={selectedRadio === "no"}
 						onClick={(e) => {
 							handleOnSubmit(e);
 						}}>
@@ -148,7 +150,7 @@ const App = () => {
 				</form>
 
 				<br />
-
+				<div className="container m-3">
 				<table className="text-center table">
 					<thead className="thead-light">
 						<tr scope="col" key={"header"}>
@@ -168,6 +170,7 @@ const App = () => {
 						))}
 					</tbody>
 				</table>
+				</div>
 			</div>
 			<p>
 				<strong>Deadline:</strong>
@@ -261,6 +264,7 @@ const App = () => {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 };
 
